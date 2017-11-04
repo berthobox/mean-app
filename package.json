@@ -1,0 +1,22 @@
+{
+  "name": "mean-app",
+  "version": "1.0.0",
+  "description": "mean course app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/berthobox/mean-app.git"
+  },
+  "author": "Me medesimo Aihmè",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/berthobox/mean-app/issues"
+  },
+  "homepage": "https://github.com/berthobox/mean-app#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
