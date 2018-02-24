@@ -12,7 +12,7 @@ app.set('port', 3000);
 // Add middleware to console log every request
 app.use(function(req, res, next) {
   console.log(req.method, req.url);
-  next(); 
+  next();
 });
 
 // Set static directory before defining routes
