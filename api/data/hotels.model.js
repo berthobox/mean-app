@@ -1,15 +1,15 @@
 var mongoose = require('mongoose');
 
 var reviewSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true
+  name : {
+    type : String,
+    required : true
   },
-  rating: {
-    type: Number,
-    min: 0,
-    max: 5,
-    required: 0
+  rating : {
+    type : Number,
+    required : true,
+    min : 0,
+    max : 5
   },
   review : {
     type : String,
@@ -30,25 +30,25 @@ var roomSchema = new mongoose.Schema({
 });
 
 var hotelSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true
+  name : {
+    type : String,
+    required : true
   },
-  stars: {
-    type: Number,
-    min: 0,
-    max: 5,
-    default: 0
+  stars : {
+    type : Number,
+    min : 0,
+    max : 5,
+    default : 0
   },
-  services: [String],
-  description: String,
-  photos: [String],
-  currency: String,
+  services : [String],
+  description : String,
+  photos : [String],
+  currency : String,
   reviews : [reviewSchema],
   rooms : [roomSchema],
   location : {
     address : String,
-    // Prima long poi lat
+    // Always store coordinates longitude (East/West), latitude (North/South) order.
     coordinates : {
       type : [Number],
       index : '2dsphere'
@@ -56,5 +56,4 @@ var hotelSchema = new mongoose.Schema({
   }
 });
 
-//compila il model
 mongoose.model('Hotel', hotelSchema);
