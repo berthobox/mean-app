@@ -75,3 +75,43 @@ module.exports.reviewsGetOne = function(req, res) {
     });
 
 };
+
+
+var _addReview = function(req, res, hotel){
+  
+};
+
+module.exports.reviewsAddOne = function(req, res){
+
+  var id = req.params.hotelId;
+  console.log('GET reviews for hotelId', id);
+
+  Hotel
+    .findById(id)
+    .select('reviews')
+    .exec(function(err, doc) {
+      var response = {
+        status : 200,
+        message : []
+      };
+      if (err) {
+        console.log("Error finding hotel");
+        response.status = 500;
+        response.message = err;
+      } else if(!doc) {
+        console.log("Hotel id not found in database", id);
+        response.status = 404;
+        response.message = {
+          "message" : "Hotel ID not found " + id
+        };
+      }
+      if(doc){
+        _addReview(req, res, doc);
+      }else{
+      res
+        .status(response.status)
+        .json(response.message);
+      }
+    });
+
+};
